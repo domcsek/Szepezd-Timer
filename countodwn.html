@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<div style="background-color: green;">
+  <h1>Szepezd Timer</h1>
+  <p></p>
+
+
+
+
+
+  <script>
+    function countdown() {
+      var countDownDate = new Date("June 7, 2023 12:00:00").getTime();
+      
+      var x = setInterval(function() {
+      
+        var now = new Date().getTime();
+        
+        var distance = countDownDate - now;
+        
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+        document.getElementById("timer").innerHTML = days + "d " + hours + "h "
+        + minutes + "m " + seconds + "s ";
+        
+        if (distance < 0) {
+          clearInterval(x);
+          document.getElementById("timer").innerHTML = "EXPIRED";
+        }
+      }, 1000);
+    }
+  </script>
+</head>
+<p style="color: green;">KÖBANYAI A LEGJOBB SÖR</p>
+
+
+<body onload="countdown()">
+  <h1></h1>
+  <p id="timer"></p></div>
+</body>
+</html>
